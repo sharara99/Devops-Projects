@@ -12,10 +12,8 @@ This project is a basic Flask web application that demonstrates how to serve dyn
 ## Project Structure
 .
 ├── Dockerfile
-├── Jenkinsfile
 ├── README.md
 ├── app.py
-├── docker-compose.yml
 └── templates
     └── hello.html
 
