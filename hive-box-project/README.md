@@ -19,7 +19,7 @@ The goal is to create an API that helps beekeepers monitor environmental conditi
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/hive-box.git
+    https://github.com/DevOpsHiveHQ/dynamic-devops-roadmap/tree/main/projects/hivebox
     ```
 2. **Navigate to the project directory:**
     ```bash
