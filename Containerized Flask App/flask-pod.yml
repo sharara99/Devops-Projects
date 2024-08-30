@@ -1,12 +1,19 @@
-apiVersion: v1
-kind: Pod
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-app
 spec:
-  containers:
-  - name: flask
-    image: sharara99/flask-app-pipline:3
-    ports:
-    - containerPort: 5000
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app
+  template:
+    metadata:
+      labels:
+        app: flask-app
+    spec:
+      containers:
+      - name: flask
+        image: sharara99/flask-app-pipeline:latest
+        ports:
+        - containerPort: 5000
