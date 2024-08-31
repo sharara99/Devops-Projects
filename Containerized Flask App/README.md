@@ -15,11 +15,20 @@ This project is a basic Flask web application that demonstrates how to serve dyn
 
 Project /
 ├── Dockerfile
+
+
 ├── README.md
+
+
 ├── flask-pod.yml
+
+
 ├── app.py
+
+
 └── templates/
-    └── hello.html
+    
+   └── hello.html
 
 
 - `app.py`: The main Flask application file.
