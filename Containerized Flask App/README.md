@@ -25,8 +25,6 @@ This project is a basic Flask web application that demonstrates how to serve dyn
 
 
 └── templates
-
-
     └── hello.html
 
 
