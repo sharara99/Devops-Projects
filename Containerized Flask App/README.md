@@ -27,8 +27,7 @@ Project /
 
 
 └── templates/
-    
-   └── hello.html
+           └── hello.html
 
 
 - `app.py`: The main Flask application file.
