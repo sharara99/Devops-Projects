@@ -10,14 +10,25 @@ This project is a basic Flask web application that demonstrates how to serve dyn
 - **Jenkins Integration:** A Jenkinsfile is included for CI/CD pipeline integration.
 - **Kubernetes Deployment:** The app is deployed on a Kubernetes cluster using a pod configuration file.
 
+
 ## Project Structure
 
+Project /
 ├── Dockerfile
+
+
 ├── README.md
+
+
 ├── flask-pod.yml
+
+
 ├── app.py
-└── templates
-    └── hello.html
+
+
+└── templates/
+        
+ └── hello.html
 
 
 - `app.py`: The main Flask application file.
