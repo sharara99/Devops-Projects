@@ -24,3 +24,5 @@
 
 #    - name: Run migration inside container
 #      command: docker exec -it django-container sh -c "python3 manage.py migrate"
+
+
