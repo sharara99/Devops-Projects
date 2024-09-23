@@ -4,6 +4,6 @@ RUN pip install flask flask-mysql
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 6060
 
-CMD ["flask", "run", "--host=0.0.0.0", "--port=8080"]
+CMD ["flask", "run", "--host=0.0.0.0", "--port=6060"]

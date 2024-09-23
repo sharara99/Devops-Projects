@@ -1,0 +1,28 @@
+- name: Automate Docker Build and Manage Container using Ansible
+  hosts: localhost
+  tasks:
+    - name: Stop running container
+      command: docker stop flask-app
+      ignore_errors: true
+
+    - name: Remove stopped container
+      command: docker rm flask-app
+      ignore_errors: true
+
+    - name: Remove used image
+      command: docker rmi sharara99/flask-app-pipeline
+      ignore_errors: true
+
+    - name: Build new image
+      command: docker build -t sharara99/flask-app-pipeline .
+
+    - name: Push docker image
+      command: docker push sharara99/flask-app-pipeline:latest
+
+    - name: Run new container
+      command: docker-compose up -d
+
+#    - name: Run migration inside container
+#      command: docker exec -it django-container sh -c "python3 manage.py migrate"
+
+

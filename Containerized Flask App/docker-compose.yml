@@ -1,0 +1,7 @@
+version : "3"
+services:
+  jenkins:
+    image: sharara99/flask-app-pipeline:latest
+    container_name: flask-app
+    ports:
+      - "6060:6060"
