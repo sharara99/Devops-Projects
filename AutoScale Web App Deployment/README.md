@@ -21,8 +21,11 @@ The **CloudKode Project** is designed to create a scalable and secure AWS infras
 **Task Diagram**
 
 ├── README.md
+
 ├── backend.tf
+
 ├── provider.tf
+
 ├── variable.tf
 ├── terraform.tfvars
 ├── s3-buckets.tf
