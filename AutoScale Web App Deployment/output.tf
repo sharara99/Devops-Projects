@@ -1,3 +1,8 @@
+output "alb_dns_name" {
+  description = "The DNS name of the Application Load Balancer"
+  value       = aws_lb.test.dns_name
+}
+
 output "subnet_public_1_id" {
   value = aws_subnet.subnet_public_1.id
   description = "ID of the first public subnet"
