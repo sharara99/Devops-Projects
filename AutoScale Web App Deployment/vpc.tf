@@ -38,7 +38,7 @@ resource "aws_subnet" "subnet_private_1" {
   vpc_id                  = aws_vpc.main_vpc.id
   cidr_block              = cidrsubnet(var.vpc_cidr, 8, 2)
   availability_zone       = "us-east-1a"
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
 
   tags = {
     Name        = "subnet-private-1"
@@ -51,7 +51,7 @@ resource "aws_subnet" "subnet_private_2" {
   vpc_id                  = aws_vpc.main_vpc.id
   cidr_block              = cidrsubnet(var.vpc_cidr, 8, 3)
   availability_zone       = "us-east-1b"
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
 
   tags = {
     Name        = "subnet-private-2"
