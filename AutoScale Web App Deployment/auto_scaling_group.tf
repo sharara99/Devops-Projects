@@ -13,13 +13,11 @@ resource "aws_launch_configuration" "app" {
     sudo apt update -y
     sudo apt install -y python3 awscli
 
-    # Verify AWS CLI installation
-    aws --version
-
-    # Get the instance ID and log instance details
+    # Get the instance ID and hostname
     INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data/instance-id)
     HOSTNAME=$(hostname -f)
 
+    # Log instance details
     echo "Instance ID: \$INSTANCE_ID" | sudo tee /var/log/instance_info.log
     echo "Hostname: \$HOSTNAME" | sudo tee -a /var/log/instance_info.log
     echo "Date: \$(date)" | sudo tee -a /var/log/instance_info.log
@@ -41,6 +39,7 @@ resource "aws_launch_configuration" "app" {
     done
   EOF
 }
+
 
 
 
