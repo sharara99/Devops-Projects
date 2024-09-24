@@ -8,8 +8,8 @@ resource "aws_launch_configuration" "app" {
 
   user_data = <<-EOF
     #!/bin/bash
-    yum update -y
-    yum install -y python3
+    sudo apt update -y
+    sudo apt install -y python3
     echo "Hello, World from Mahmoud Sharara Server, \$(hostname -f)" > /home/ec2-user/index.html
     cd /home/ec2-user
     python3 -m http.server 80 &
