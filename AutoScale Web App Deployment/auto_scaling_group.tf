@@ -26,7 +26,7 @@ resource "aws_launch_configuration" "app" {
     sudo apt install -y nginx
 
     # Create an HTML file with your name and instance information
-    echo "<html><body><h1>Hello, From Mahmoud Sharara Server</h1><p>Instance ID: \$INSTANCE_ID</p><p>Hostname: \$HOSTNAME</p></body></html>" | sudo tee /var/www/html/index.html
+    echo "<html><body><h1>Hello, From Mahmoud Sharara Server</h1><p>Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)</p><p>Hostname: $(hostname -f)</p></body></html>" | sudo tee /var/www/html/index.html
 
     # Start and enable Nginx
     sudo systemctl start nginx
