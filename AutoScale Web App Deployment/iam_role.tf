@@ -1,6 +1,6 @@
 # Create IAM Role for EC2
 resource "aws_iam_role" "ec2_role" {
-  name = "ec2_log_upload_role"  # Updated role name for clarity
+  name = "ec2_log_upload_role" # Updated role name for clarity
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
@@ -23,7 +23,7 @@ resource "aws_iam_role" "ec2_role" {
 
 # Create IAM Policy for S3 Access
 resource "aws_iam_policy" "s3_policy" {
-  name = "s3_log_upload_policy"  # Updated policy name for clarity
+  name = "s3_log_upload_policy" # Updated policy name for clarity
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [

@@ -1,10 +1,10 @@
 # Create Load Balancer (ALB)
 resource "aws_lb" "test" {
-  name               = "ALB"
-  internal           = false
-  load_balancer_type = "application"
-  security_groups    = [aws_security_group.HTTP-SG.id]
-  subnets            = [aws_subnet.subnet_private_1.id, aws_subnet.subnet_private_2.id]
+  name                       = "ALB"
+  internal                   = false
+  load_balancer_type         = "application"
+  security_groups            = [aws_security_group.HTTP-SG.id]
+  subnets                    = [aws_subnet.subnet_private_1.id, aws_subnet.subnet_private_2.id]
   enable_deletion_protection = false
 
   tags = {

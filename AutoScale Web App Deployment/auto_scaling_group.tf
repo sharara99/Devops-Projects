@@ -18,13 +18,13 @@ resource "aws_launch_configuration" "app" {
 
 # Create Auto Scaling Group (ASG)
 resource "aws_autoscaling_group" "app" {
-  name                  = "ASG"
-  launch_configuration  = aws_launch_configuration.app.id
-  min_size              = 1
-  max_size              = 3
-  desired_capacity      = 2
-  vpc_zone_identifier   = [aws_subnet.subnet_private_1.id, aws_subnet.subnet_private_2.id]
-  target_group_arns     = [aws_lb_target_group.targetgp.arn]
+  name                 = "ASG"
+  launch_configuration = aws_launch_configuration.app.id
+  min_size             = 1
+  max_size             = 3
+  desired_capacity     = 2
+  vpc_zone_identifier  = [aws_subnet.subnet_private_1.id, aws_subnet.subnet_private_2.id]
+  target_group_arns    = [aws_lb_target_group.targetgp.arn]
 
   tag {
     key                 = "Name"
