@@ -1,6 +1,6 @@
 # CloudKode Project - AWS Infrastructure with Terraform
 
-![Automated Photo](Invok-automated.gif)
+![Automated Photo](automated_inv.gif)
 
 This project automates the creation of a scalable and secure AWS infrastructure using Terraform. It provisions a Virtual Private Cloud (VPC), subnets, S3 buckets, security groups, EC2 instances, an Application Load Balancer (ALB), and an Auto Scaling Group (ASG). The setup is highly modular and deploys resources across multiple availability zones in the `us-east-1` region.
 
