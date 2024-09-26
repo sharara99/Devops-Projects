@@ -8,6 +8,9 @@ resource "aws_instance" "bastion" {
   # Enable public IP assignment
   associate_public_ip_address = true
 
+  # Attach IAM instance profile
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+
   tags = {
     Name        = "bastion-host"
     Environment = var.Environment
