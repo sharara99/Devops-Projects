@@ -11,6 +11,9 @@ resource "aws_launch_configuration" "app" {
     sudo apt update -y
     sudo apt install -y nginx
 
+    # Install AWS CLI
+    sudo apt install -y awscli
+
     # Start and enable Nginx
     sudo systemctl start nginx
     sudo systemctl enable nginx

@@ -52,3 +52,7 @@ output "bastion_public_ip" {
   description = "The public IP address of the bastion host, used for SSH access from external networks."
   value       = aws_instance.bastion.public_ip
 }
+
+output "private_key_path" {
+  value = "${path.module}/mykey.pem"
+}
