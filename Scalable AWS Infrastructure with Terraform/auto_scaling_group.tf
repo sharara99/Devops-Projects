@@ -8,15 +8,21 @@ resource "aws_launch_configuration" "app_new" {
 
   user_data = <<-EOF
     #!/bin/bash
-    apt update -y
-    apt install -y nginx
+    sudo apt update -y
+    sudo apt install -y nginx
+
+    # Start and enable Nginx
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
 
     # Create HTML file with your name
-    echo "<html><body><h1>Mahmoud Sharara</h1></body></html>" > /var/www/html/index.html
+    echo "<html><body><h1>Welcome to Mahmoud Sharara, Web Server</h1>Hostname: $(hostname -f)</body></html>" > /var/www/html/index.html
 
-    # Start Nginx
-    systemctl start nginx
-    systemctl enable nginx
+    # Restart Nginx to apply the changes
+    sudo systemctl restart nginx
+    sudo systemctl enable nginx
+
+    
   EOF
 }
 

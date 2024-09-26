@@ -9,12 +9,23 @@ resource "aws_launch_configuration" "app" {
   user_data = <<-EOF
     #!/bin/bash
     sudo apt update -y
-    sudo apt install -y python3
-    echo "Hello, World from Mahmoud Sharara Server, \$(hostname -f)" > /home/ec2-user/index.html
-    cd /home/ec2-user
-    python3 -m http.server 80 &
+    sudo apt install -y nginx
+
+    # Start and enable Nginx
+    sudo systemctl start nginx
+    sudo systemctl enable nginx
+
+    # Create HTML file with your name
+    echo "<html><body><h1>Welcome to Mahmoud Sharara, Web Server</h1>Hostname: $(hostname -f)</body></html>" > /var/www/html/index.html
+
+    # Restart Nginx to apply the changes
+    sudo systemctl restart nginx
+    sudo systemctl enable nginx
+
+    
   EOF
 }
+
 
 # Create Auto Scaling Group (ASG)
 resource "aws_autoscaling_group" "app" {
