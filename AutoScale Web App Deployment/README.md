@@ -39,5 +39,5 @@ The **CloudKode Project** is designed to create a scalable and secure AWS infras
 
 To run this project, you need the following:
 - [Terraform](https://www.terraform.io/downloads.html) installed.
-- AWS credentials configured (with the profile name `sharara1`).
+- AWS credentials configured .
 - An AWS account with permissions to create resources such as VPCs, EC2, and IAM.
