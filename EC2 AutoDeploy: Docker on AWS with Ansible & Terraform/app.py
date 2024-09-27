@@ -22,10 +22,62 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.send_response(200)
-            self.send_header("Content-type", "text/plain")
+            self.send_header("Content-type", "text/html")
             self.end_headers()
             instance_id = get_instance_id()
-            self.wfile.write(f"This page is from a simple application that prints the following message. I uploaded the application to CodeCommit and created a Dockerfile to build an image and run a container to host the application. I set up an IAM role to allow the instance to pull the code and wrote a Bash script to download the necessary dependencies, pull the code from CodeCommit, and run the container to access the application. Additionally, I implemented an ELB to distribute traffic and configured auto-scaling to ensure high availability. EC2 Instance ID: {instance_id}".encode())
+            self.wfile.write(
+                f"""
+                <html>
+                <head>
+                    <title>Welcome to My Application</title>
+                    <style>
+                        body {{
+                            font-family: Arial, sans-serif;
+                            background-color: #e7f3fe;
+                            margin: 0;
+                            padding: 20px;
+                            text-align: center;
+                        }}
+                        h1 {{
+                            color: #2c3e50;
+                        }}
+                        p {{
+                            font-size: 18px;
+                            line-height: 1.6;
+                            color: #34495e;
+                        }}
+                        .container {{
+                            background-color: #fff;
+                            padding: 30px;
+                            border-radius: 10px;
+                            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                            display: inline-block;
+                            margin-top: 30px;
+                            max-width: 600px;
+                        }}
+                        .footer {{
+                            margin-top: 20px;
+                            font-size: 14px;
+                            color: #7f8c8d;
+                        }}
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <h1>Welcome to My Project!</h1>
+                        <p>Hi, I'm <strong>Mahmoud Sharara</strong>, and this is my application hosted on AWS!</p>
+                        <p>This web application was deployed using a combination of AWS services. I utilized <strong>AWS CodeCommit</strong> to manage the application code, and crafted a <strong>Dockerfile</strong> to create a Docker image for hosting the app.</p>
+                        <p>To streamline the deployment, I set up an <strong>IAM role</strong> that enables the EC2 instance to pull code securely, alongside a <strong>Bash script</strong> that automates dependency installation and container execution.</p>
+                        <p>For scalability and reliability, I implemented an <strong>Elastic Load Balancer (ELB)</strong> to distribute traffic effectively and configured <strong>auto-scaling</strong> to ensure high availability.</p>
+                        <p>Current EC2 Instance ID: <strong>{instance_id}</strong></p>
+                    </div>
+                    <div class="footer">
+                        <p>Thank you for visiting!</p>
+                    </div>
+                </body>
+                </html>
+                """.encode()
+            )
         else:
             super().do_GET()
 
