@@ -1,5 +1,8 @@
 # Flask Docker App
 
+![Automated Photo](automated.gif)
+
+
 This project is a basic Flask web application that demonstrates how to serve dynamic content using Flask. The application is containerized using Docker, integrated with a Jenkins CI/CD pipeline, and deployed on a Kubernetes cluster.
 
 ## Features
@@ -13,31 +16,11 @@ This project is a basic Flask web application that demonstrates how to serve dyn
 
 ## Project Structure
 
-Project /
-├── Dockerfile
-
-
-├── README.md
-
-
-├── flask-pod.yml
-
-
-├── app.py
-
-
-└── templates/
-        
- └── hello.html
-
-
 - `app.py`: The main Flask application file.
 - `Dockerfile`: Used to build the Docker image for the application.
 - `Jenkinsfile`: CI/CD pipeline configuration for Jenkins.
 - `flask-pod.yml`: Kubernetes Pod configuration file for deploying the Flask app.
 - `templates/hello.html`: HTML template that gets rendered by Flask.
-
-## Getting Started
 
 ### Prerequisites
 
