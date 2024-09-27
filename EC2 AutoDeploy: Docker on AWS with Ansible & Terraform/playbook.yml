@@ -1,0 +1,48 @@
+---
+- name: Install Docker and deploy container
+  hosts: all
+  become: true
+  tasks:
+    - name: Update APT package index
+      apt:
+        update_cache: yes
+
+    - name: Install prerequisites
+      apt:
+        name: curl
+        state: present
+
+    - name: Download Docker install script
+      command: curl -fsSL https://get.docker.com -o get-docker.sh
+      args:
+        chdir: /home/ubuntu
+
+    - name: Run Docker install script
+      command: sh get-docker.sh
+      args:
+        chdir: /home/ubuntu
+
+    - name: Add current user to Docker group
+      user:
+        name: "ubuntu"  # Use the 'ubuntu' user in AWS
+        groups: docker
+        append: yes
+
+    - name: Ensure Docker service is started and enabled
+      systemd:
+        name: docker
+        enabled: yes
+        state: started
+
+    - name: Check Docker version
+      command: docker --version
+
+    - name: Build Docker image
+      command: docker build -t myapp .
+      args:
+        chdir: /home/ubuntu
+
+    - name: Create Docker container
+      command: docker container run -it -d --name python-app -p 5000:5000 myapp
+      args:
+        chdir: /home/ubuntu
