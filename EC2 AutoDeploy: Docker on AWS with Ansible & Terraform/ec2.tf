@@ -9,23 +9,9 @@ resource "aws_instance" "bastion" {
   associate_public_ip_address = true
 
   tags = {
-    Name        = "bastion-host"
+    Name        = "Python-App-Server"
     Environment = var.Environment
     Owner       = var.Owner
-  }
-
-  # Copy the Ansible playbook from the local machine to the EC2 instance
-  provisioner "file" {
-    source      = "playbook.yml"            # Local path to your playbook file
-    destination = "/home/ubuntu/playbook.yml" # Remote destination on the EC2 instance
-
-    # Connection block
-    connection {
-      type        = "ssh"
-      user        = "ubuntu" # Change if your user is different
-      private_key = tls_private_key.pk.private_key_pem # Use the private key directly
-      host        = self.public_ip # Use the public IP of the instance
-    }
   }
 
   # Copy the Dockerfile

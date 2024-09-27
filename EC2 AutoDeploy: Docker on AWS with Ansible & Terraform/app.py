@@ -29,7 +29,7 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
                 f"""
                 <html>
                 <head>
-                    <title>Welcome to My Application</title>
+                    <title>Welcome to EC2 AutoDeploy!</title>
                     <style>
                         body {{
                             font-family: Arial, sans-serif;
@@ -64,11 +64,12 @@ class MyHandler(http.server.SimpleHTTPRequestHandler):
                 </head>
                 <body>
                     <div class="container">
-                        <h1>Welcome to My Project!</h1>
-                        <p>Hi, I'm <strong>Mahmoud Sharara</strong>, and this is my application hosted on AWS!</p>
-                        <p>This web application was deployed using a combination of AWS services. I utilized <strong>AWS CodeCommit</strong> to manage the application code, and crafted a <strong>Dockerfile</strong> to create a Docker image for hosting the app.</p>
-                        <p>To streamline the deployment, I set up an <strong>IAM role</strong> that enables the EC2 instance to pull code securely, alongside a <strong>Bash script</strong> that automates dependency installation and container execution.</p>
-                        <p>For scalability and reliability, I implemented an <strong>Elastic Load Balancer (ELB)</strong> to distribute traffic effectively and configured <strong>auto-scaling</strong> to ensure high availability.</p>
+                        <h1>Welcome to EC2 AutoDeploy!</h1>
+                        <p>Hi, I'm <strong>Mahmoud Sharara</strong>, and this is my automated application deployment solution hosted on AWS!</p>
+                        <p>This web application is part of my project that efficiently provisions an <strong>AWS EC2 instance</strong> and deploys a <strong>Dockerized application</strong>.</p>
+                        <p>By leveraging <strong>Terraform</strong>, I manage infrastructure as code, creating cloud resources with ease and repeatability.</p>
+                        <p>Using <strong>Ansible</strong>, I automate the installation of Docker, build the application image from a specified Dockerfile, and run the container on the EC2 instance.</p>
+                        <p>This setup ensures a scalable and reproducible environment for deploying applications, ideal for developers and DevOps engineers!</p>
                         <p>Current EC2 Instance ID: <strong>{instance_id}</strong></p>
                     </div>
                     <div class="footer">
