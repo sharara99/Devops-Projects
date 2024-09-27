@@ -46,3 +46,18 @@ resource "aws_autoscaling_group" "app" {
     propagate_at_launch = true
   }
 }
+
+# Fetch the instance details based on Auto Scaling Group instances
+data "aws_instances" "asg_instances" {
+  depends_on = [aws_autoscaling_group.app]  # Ensures instances are launched before fetching
+
+  filter {
+    name   = "instance-state-name"
+    values = ["running"]
+  }
+
+  filter {
+    name   = "tag:Name"
+    values = ["ASG_Instance"]
+  }
+}

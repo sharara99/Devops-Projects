@@ -1,58 +1,30 @@
-output "alb_dns_name" {
-  description = "The DNS name of the Application Load Balancer"
-  value       = aws_lb.test.dns_name
+output "vpc_id" {
+  description = "The ID of the created VPC"
+  value       = [aws_vpc.main_vpc.id, aws_vpc.main_vpc.cidr_block]
 }
 
-output "subnet_public_1_id" {
-  value       = aws_subnet.subnet_public_1.id
-  description = "ID of the first public subnet"
+output "public_subnet_cidrs" {
+  description = "The IDs of the public subnets"
+  value       = [aws_subnet.subnet_public_1.cidr_block, aws_subnet.subnet_public_2.cidr_block]
 }
 
-output "subnet_public_1_cidr" {
-  value       = aws_subnet.subnet_public_1.cidr_block
-  description = "CIDR block of the first public subnet"
-}
-
-output "subnet_public_2_id" {
-  value       = aws_subnet.subnet_public_2.id
-  description = "ID of the second public subnet"
-}
-
-output "subnet_public_2_cidr" {
-  value       = aws_subnet.subnet_public_2.cidr_block
-  description = "CIDR block of the second public subnet"
-}
-
-output "subnet_private_1_id" {
-  value       = aws_subnet.subnet_private_1.id
-  description = "ID of the first private subnet"
-}
-
-output "subnet_private_1_cidr" {
-  value       = aws_subnet.subnet_private_1.cidr_block
-  description = "CIDR block of the first private subnet"
-}
-
-output "subnet_private_2_id" {
-  value       = aws_subnet.subnet_private_2.id
-  description = "ID of the second private subnet"
-}
-
-output "subnet_private_2_cidr" {
-  value       = aws_subnet.subnet_private_2.cidr_block
-  description = "CIDR block of the second private subnet"
-}
-
-output "bastion_instance_id" {
-  description = "The ID of the bastion host instance used for secure access to other resources."
-  value       = aws_instance.bastion.id
+output "private_subnet_cidrs" {
+  description = "The IDs of the public subnets"
+  value       = [aws_subnet.subnet_private_1.cidr_block, aws_subnet.subnet_private_2.cidr_block]
 }
 
 output "bastion_public_ip" {
-  description = "The public IP address of the bastion host, used for SSH access from external networks."
+  description = "The public IP of the bastion host"
   value       = aws_instance.bastion.public_ip
 }
 
-output "private_key_path" {
-  value = "${path.module}/mykey.pem"
+output "load_balancer_dns" {
+  description = "The DNS name of the load balancer"
+  value       = aws_lb.test.dns_name
+}
+
+# Output the private IPs of the instances in the Auto Scaling Group
+output "private_instance_ips" {
+  description = "Private IP addresses of instances in the Auto Scaling Group"
+  value       = data.aws_instances.asg_instances.private_ips
 }
